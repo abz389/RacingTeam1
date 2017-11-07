@@ -3,6 +3,9 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
+GPIO.output(23, 1)
+GPIO.output(24, 1)
+
 GPIO.setup(21, GPIO.OUT)	#Ausgang Motoren rechts
 GPIO.setup(18, GPIO.OUT)	#Ausgang Motoren links
 
