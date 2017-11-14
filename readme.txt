@@ -16,13 +16,13 @@ in den Ordner haw/it-systeme/git gehen mit cd pro ordner
 1.	Dokument erstellen
 2.	
 
-PIN-Belegung
-PIN 17 = enable + geschwindigkeit rechts
-PIN 18 = enable + geschwindigkeit links
-PIN 19 = rückwärts rechts
-PIN 20 = rückwärts links
-PIN 23 = vorwärts rechts
-PIN 24 = vorwärts links 
+PIN-Belegung Motormodul zu Raspi
+PIN 17 = enable + geschwindigkeit links
+PIN 18 = enable + geschwindigkeit rechts
+PIN 25 = rückwärts rechts
+PIN 12 = rückwärts links
+PIN 24 = vorwärts rechts
+PIN 23 = vorwärts links 
 
 
 
