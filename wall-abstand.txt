@@ -1,0 +1,50 @@
+def wallright(x,y):
+
+x = 100           #Motor rechts
+y = 100           #Motor links
+b = 10            #Abstand zur Wand
+
+a = sensorright(a)                 #(a = Abstand sensor)
+
+while a<>b:
+    if a<b:
+        while a=b:
+            a = sensor-right
+        
+            x = x - 1
+            return x
+            
+            
+    else a>b:
+        while a=b:
+            a = sensor-right
+           
+            y = y - 1
+            return y
+#
+
+
+def wallleft(w,y):
+
+w = 100           #Motor rechts
+v = 100           #Motor links
+d = 10            #Abstand zur Wand
+
+c = sensorright(a)                 #(a = Abstand sensor)
+
+while c<>d:
+    if c<d:
+        while c=d:
+            c = sensor-right
+        
+            w = w - 1
+            return w
+            
+            
+    else c>d:
+        while c=d:
+            c = sensor-right
+           
+            v = v - 1
+            return v
+                        
