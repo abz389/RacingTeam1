@@ -19,16 +19,11 @@ MotorB = GPIO.PWM(PIN_ENB, 50.0)
 MotorA.start(2)                		
 MotorB.start(75)                   		
 
-
 GPIO.output(PIN_DIRA, 1)           #rechts aktivieren
 GPIO.output(PIN_DIRB, 1)           #links aktivieren
 
-    
-    
 input('Press return to stop:')
 
-    
-    
 MotorA.stop()
 MotorB.stop()
 
