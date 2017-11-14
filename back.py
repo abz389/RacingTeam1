@@ -14,21 +14,17 @@ GPIO.setup(PIN_DIRA, GPIO.OUT)
 GPIO.setup(PIN_ENA, GPIO.OUT)
 GPIO.setup(PIN_DIRB, GPIO.OUT)
 GPIO.setup(PIN_ENB, GPIO.OUT)
-MotorA = GPIO.PWM(PIN_ENA, 50.0)  	#rechts ansteuern mit 50Hz
-MotorB = GPIO.PWM(PIN_ENB, 50.0)   	#links ansteuern mit 50HZ
+MotorA = GPIO.PWM(PIN_ENA, 50.0)  	    #rechts ansteuern mit 50Hz
+MotorB = GPIO.PWM(PIN_ENB, 50.0)   	    #links ansteuern mit 50HZ
 MotorA.start(75)                		#rechts tastverhaeltniss 70%
 MotorB.start(75)                   		#links tastverhaeltniss 50%
 
+GPIO.output(PIN_DIRA, 1)                #rechts aktivieren
+GPIO.output(PIN_DIRB, 1)                #links aktivieren
 
-GPIO.output(PIN_DIRA, 1)           #rechts aktivieren
-GPIO.output(PIN_DIRB, 1)           #links aktivieren
-
-    
-    
 input('Press return to stop:')
 
-    
-    
+     
 MotorA.stop()
 MotorB.stop()
 
