@@ -3,10 +3,13 @@ PIN-Belegung Motormodul zu Raspi (GPIO.BCM)
 PIN 17 = enable + geschwindigkeit links
 PIN 18 = enable + geschwindigkeit rechts
 
-PIN 25 = rückwaerts rechts
-PIN 12 = rückwaerts links
+PIN 25 = rÃ¼ckwaerts rechts
+PIN 12 = rÃ¼ckwaerts links
 PIN 24 = vorwaerts rechts
 PIN 23 = vorwaerts links 
 
-PIN 08 = Ultraschall Trigger
-PIN 07 = Ultraschall Echo
+
+PIN 20 = Ultraschall Trigger rechts
+PIN 21 = Ultraschall Echo rechts
+PIN 16 = Ultraschall Trigger links
+PIN 26 = Ultraschall Echo links
