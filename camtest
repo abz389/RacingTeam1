@@ -1,0 +1,70 @@
+import cv2  # Dies ist die Bildverarbeitungsbibliothek OpenCV
+import numpy as np
+import time
+
+def mkuint8(img):
+    result = +img
+    result[img < 0] = 0
+    result[img > 255] = 255
+    return result.astype('uint8')
+
+
+def segment_image(frame):
+    frame = frame.astype('float')
+    red = frame[..., 2]
+    green = frame[..., 1]
+    blue = frame[..., 0]
+    img = red - (blue + green) / 2
+    img = mkuint8(img)
+    thl, img1 = cv2.threshold(img, 2, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+#    img1 = img1 if thl>50 else img>50
+    return img1
+
+
+def calc_point_of_gravity(binary_img):
+    height, width = binary_img.shape
+    y = np.arange(height)
+    x = np.arange(width)
+    ws = (binary_img * x).sum(axis=1)
+    rs = binary_img.sum(axis=1)
+
+    valid = abs(rs) > 1e-6
+    pog = ws * 0
+    pog[valid] = ws[valid] / rs[valid]
+
+#    valid = valid & (y > 300)
+    return y[valid], pog[valid]
+
+
+def process(img):
+    img_orig = +img
+
+    img = segment_image(img)
+    y, pog = calc_point_of_gravity(img)
+
+    if len(y)>0:
+        xpos = pog[np.argmax(y)]
+        m = int(xpos/640*80)
+        s = ' ' * m + '#' + ' ' * (80 - m)
+    else:
+        s = ''
+
+    return s
+
+
+
+cap = cv2.VideoCapture(0)
+
+i = 0
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    start = time.time()
+    s = process(frame[450::5, :, :])
+    duration = time.time()-start
+    print(s, '%.2fms'%(duration*1e3))
+
+    i+=1
+
+# When everything done, release the capture
+cap.release()
